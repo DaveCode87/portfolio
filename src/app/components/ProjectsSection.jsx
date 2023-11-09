@@ -7,17 +7,18 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "Site Portfolio",
-    description: "Project 1 description",
+    title: "Portfolio",
+    description:
+      "My personal site built with Next.js, EmailJS, and Tailwind CSS.",
     image: "/images/projects/pro-1.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/DaveCode87/portfolio",
     previewUrl: "",
   },
   {
     id: 2,
     title: "Quiz App",
-    description: "Project 2 description",
+    description:"15-question quiz app in Next.js, utilizing Zustand for state management.",
     image: "/images/projects/pro-2.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/DaveCode87/quiz-app",
@@ -26,25 +27,25 @@ const projectsData = [
   {
     id: 3,
     title: "Weather App",
-    description: "Project 3 description",
+    description:"5-day weather forecast app in Next.js, TypeScript, Tailwind, and Lucide React, using OpenWeather API.",
     image: "/images/projects/pro-3.png",
-    tag: ["All", "Mobile"],
+    tag: ["All", "Web"],
     gitUrl: "https://github.com/DaveCode87/weather-app",
     previewUrl: "https://weather-app-davecode.vercel.app/",
   },
   {
     id: 4,
     title: "Gym App",
-    description: "con questo progetto ho utilizzato shadcn/ui clerk , forse zustand e zod",
+    description:"WIP fitness tracker app in Next.js, TypeScript, Clerck, Lucide React, and Shadcn/ui.",
     image: "/images/projects/pro-4.png",
-    tag: ["All", "Mobile"],
+    tag: ["All", "Web"],
     gitUrl: "https://github.com/DaveCode87/gym-app",
     previewUrl: "https://gym-app-davecode.vercel.app/",
   },
   {
     id: 5,
     title: "Crud Laravel",
-    description: "Project 5 description",
+    description: "Simple Laravel CRUD system in Docker environment with JWT authentication.",
     image: "/images/projects/pro-5.png",
     tag: ["All", "Backend"],
     gitUrl: "https://github.com/DaveCode87/crud-laravel-docker-jwt",
@@ -86,11 +87,11 @@ const ProjectsSection = () => {
           name="Web"
           isSelected={tag === "Web"}
         />
-        <ProjectTag
+        {/* <ProjectTag
           onClick={handleTagChange}
           name="Mobile"
           isSelected={tag === "Mobile"}
-        />
+        /> */}
         <ProjectTag
           onClick={handleTagChange}
           name="Backend"

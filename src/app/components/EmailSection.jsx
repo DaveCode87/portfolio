@@ -1,46 +1,69 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import InstagramIcon from "../../../public/instagram-icon.svg";
 import FacebookIcon from "../../../public/facebook-icon.svg";
 import GmailIcon from "../../../public/gmail-icon.svg";
+import emailjs from "emailjs-com";
 import Link from "next/link";
 import Image from "next/image";
 
 const EmailSection = () => {
+  const defaultData = useMemo(
+    () => ({
+      name: "",
+      email: "",
+      message: "",
+    }),
+    []
+  );
+
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [data, setData] = useState(defaultData);
+  const [sending, setSending] = useState(false);
+  const [sendEmailSuccess, setSendEmailSuccess] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+  const onChange = useCallback((event) => {
+    const { name, value } = event.target;
+    const fieldData = { [name]: value };
+    setData((prevData) => ({ ...prevData, ...fieldData }));
+  }, []);
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
+  const handleSubmit = useCallback(
+    async (event) => {
+      event.preventDefault();
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
+      setSending(true);
 
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
-    }
-  };
+      const { name, email, message } = data;
+      const templateParams = {
+        to_name: name,
+        from_name: email,
+        message: message,
+      };
+
+      emailjs
+        .send(
+          "service_eymyszh",
+          "template_09aru2q",
+          templateParams,
+          "4qkFZ_T6-7x1U9iiV"
+        )
+        .then(
+          (result) => {
+            console.log("result", result);
+            setSendEmailSuccess(true);
+            setSending(false);
+          },
+          (error) => {
+            console.error("Error sending email:", error);
+            setSending(false);
+          }
+        );
+    },
+    [data]
+  );
 
   return (
     <section
@@ -53,9 +76,7 @@ const EmailSection = () => {
           Let`&apos;s Connect
         </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
-          Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
+          please contact me for any information
         </p>
         <div className="socials flex flex-row gap-2">
           <Link target="_blank" href="mailto:davidetrovato87@gmail.com">
@@ -64,7 +85,10 @@ const EmailSection = () => {
           <Link target="_blank" href="https://github.com/DaveCode87">
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link target="_blank" href="https://www.linkedin.com/in/trovatodavide/">
+          <Link
+            target="_blank"
+            href="https://www.linkedin.com/in/trovatodavide/"
+          >
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
           {/* <Link href="facebook.com">
@@ -84,10 +108,26 @@ const EmailSection = () => {
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
+                htmlFor="name"
+                className="text-white block text-sm mb-2 font-medium"
+              >
+                Name
+              </label>
+              <input
+                name="name"
+                type="text"
+                id="name"
+                required
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                placeholder="name"
+              />
+            </div>
+            <div className="mb-6">
+              <label
                 htmlFor="email"
                 className="text-white block mb-2 text-sm font-medium"
               >
-                Your email
+                email
               </label>
               <input
                 name="email"
@@ -96,22 +136,6 @@ const EmailSection = () => {
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="email"
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Subject
-              </label>
-              <input
-                name="subject"
-                type="text"
-                id="subject"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="subject"
               />
             </div>
             <div className="mb-6">
@@ -132,8 +156,11 @@ const EmailSection = () => {
               type="submit"
               className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
             >
-              Send Message
+              {sending ? "Sending..." : "Send Message"}
             </button>
+            {sendEmailSuccess ? (
+              <div>Your message has been successfully sent!</div>
+            ) : null}
           </form>
         )}
       </div>
