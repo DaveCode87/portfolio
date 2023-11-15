@@ -12,6 +12,7 @@ const TAB_DATA = [
         <li>Javascript</li>
         <li>Typescript</li>
         <li>React</li>
+        <li>Next</li>
         <li>React Native</li>
         <li>Angular</li>
         <li>Laravel</li>
@@ -23,7 +24,7 @@ const TAB_DATA = [
     id: "work",
     content: (
       <ul className="list-disc pl-2">
-        <li>Frontend Developer Coderblock <br/> November 2020 - Present</li>
+        <li>Frontend Developer Coderblock <br/> November 2020 - Present</li><br/>
         <li>Junior Frontend Developer DevelHope <br/> June 2020 - November 2020</li>
       </ul>
     ),
