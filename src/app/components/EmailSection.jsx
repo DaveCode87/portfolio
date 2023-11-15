@@ -159,7 +159,7 @@ const EmailSection = () => {
               {sending ? "Sending..." : "Send Message"}
             </button>
             {sendEmailSuccess ? (
-              <div>Your message has been successfully sent!</div>
+              <div className="text-white">Your message has been successfully sent!</div>
             ) : null}
           </form>
         )}
