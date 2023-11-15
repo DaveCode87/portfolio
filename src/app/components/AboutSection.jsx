@@ -5,8 +5,8 @@ import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
-    title: "Skills",
-    id: "skills",
+    title: "Hard Skills",
+    id: "hard",
     content: (
       <ul className="list-disc pl-2">
         <li>Javascript</li>
@@ -16,6 +16,21 @@ const TAB_DATA = [
         <li>React Native</li>
         <li>Angular</li>
         <li>Laravel</li>
+        <li>Git</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Soft Skills",
+    id: "soft",
+    content: (
+      <ul className="list-disc pl-2">
+        <li>Problem Solving</li>
+        <li>Communication</li>
+        <li>Team Collaboration</li>
+        <li>Adaptability</li>
+        <li>Creativity</li>
+        <li>Figma</li>
       </ul>
     ),
   },
@@ -42,7 +57,7 @@ const TAB_DATA = [
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
+  const [tab, setTab] = useState("hard");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -64,11 +79,18 @@ const AboutSection = () => {
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
+              selectTab={() => handleTabChange("hard")}
+              active={tab === "hard"}
             >
               {" "}
-              Skills{" "}
+              Hard Skills{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("soft")}
+              active={tab === "soft"}
+            >
+              {" "}
+              Soft Skills{" "}
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("work")}

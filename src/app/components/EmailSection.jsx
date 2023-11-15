@@ -37,6 +37,10 @@ const EmailSection = () => {
       setSending(true);
 
       const { name, email, message } = data;
+
+      console.log("test davide name",name )
+      console.log("test davide email",email )
+      console.log("test davide message",message )
       const templateParams = {
         to_name: name,
         from_name: email,
@@ -117,6 +121,7 @@ const EmailSection = () => {
                 name="name"
                 type="text"
                 id="name"
+                onChange={onChange}
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="name"
@@ -133,6 +138,7 @@ const EmailSection = () => {
                 name="email"
                 type="email"
                 id="email"
+                onChange={onChange}
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="email"
@@ -148,6 +154,7 @@ const EmailSection = () => {
               <textarea
                 name="message"
                 id="message"
+                onChange={onChange}
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
