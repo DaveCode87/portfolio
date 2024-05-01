@@ -39,7 +39,8 @@ const TAB_DATA = [
     id: "work",
     content: (
       <ul className="list-disc pl-2">
-        <li>Frontend Developer Coderblock <br/> November 2020 - Present</li><br/>
+        <li>Frontend Developer Digiup <br/> April 2024 - Present</li><br/>
+        <li>Frontend Developer Coderblock <br/> November 2020 - April 2024</li><br/>
         <li>Junior Frontend Developer DevelHope <br/> June 2020 - November 2020</li>
       </ul>
     ),
