@@ -507,7 +507,7 @@ export const bucketListJson = [
     completed: true,
     family: true,
     viewImage: true,
-    allImages: [1,2,3,4],
+    allImages: [1,2,3],
   },
   {
     principalKey: "tendabeduina",
@@ -727,6 +727,7 @@ export const bucketListJson = [
     completed: false,
     family: false,
     viewImage: true,
+    allImages: [],
   },
   {
     principalKey: "tempio",
@@ -736,6 +737,7 @@ export const bucketListJson = [
     completed: false,
     family: false,
     viewImage: true,
+    allImages: [],
   },
   {
     principalKey: "sveglioalba",
@@ -744,7 +746,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "cannocchiale",
@@ -753,7 +756,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "tramontoaustralia",
@@ -762,7 +766,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "viaggioontheroad",
@@ -771,7 +776,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "dormireintenda",
@@ -780,7 +786,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "scalamontagna",
@@ -789,25 +796,18 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "piedecontinente",
     title: "Mettere piede su ogni continente: Europa ✓, Africa ✓, Asia ✓, America, Oceania",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
-    completed: false,
-    family: false,
+    completed: true,
+    family: true,
     viewImage: true,
-  },
-  {
-    principalKey: "capitalieuropee2",
-    title: "Visitare tutte le capitali europee (13/43)",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
-    completed: false,
-    family: false,
-    viewImage: true,
+    allImages: [1,2,3,4,5,6],
   },
   {
     principalKey: "londra",
@@ -817,6 +817,7 @@ export const bucketListJson = [
     completed: false,
     family: false,
     viewImage: true,
+    allImages: [],
   },
   {
     principalKey: "zainospalla",
@@ -825,7 +826,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "safari",
@@ -835,6 +837,7 @@ export const bucketListJson = [
     completed: false,
     family: false,
     viewImage: true,
+    allImages: [],
   },
   {
     principalKey: "tajmahal",
@@ -844,6 +847,7 @@ export const bucketListJson = [
     completed: false,
     family: false,
     viewImage: true,
+    allImages: [],
   },
   {
     principalKey: "polinesia",
@@ -852,7 +856,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "concerto",
@@ -861,7 +866,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "nottecastello",
@@ -870,7 +876,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "suonostrumento",
@@ -879,7 +886,8 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "cucinastrada",
@@ -888,16 +896,18 @@ export const bucketListJson = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
     completed: false,
     family: false,
-    viewImage: true,
+    viewImage: false,
+    allImages: [],
   },
   {
     principalKey: "santorini",
     title: "Visitare una delle isole greche, nel mio caso Santorini",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec eros ac libero pretium eleifend. Morbi non turpis a lectus consectetur dictum.",
-    completed: false,
-    family: false,
+    completed: true,
+    family: true,
     viewImage: true,
+    allImages: [1,2,3,4],
   },
   
 ];

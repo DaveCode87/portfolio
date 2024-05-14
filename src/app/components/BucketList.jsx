@@ -29,11 +29,11 @@ const BucketList = () => {
           Completed: {completedCount} / {totalCount}
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full lg:w-3/4 xl:w-1/2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full lg:w-3/4 ">
         {bucketListJson.map((experience, index) => (
           <div
             key={experience.principalKey}
-            className="flex justify-between px-6 py-4 border border-white rounded-lg"
+            className="flex justify-between px-6 py-4 border border-white rounded-lg w-full "
             style={{
               backgroundColor: experience.completed ? "#1f1f1f" : "#121212",
               height: "100px",
