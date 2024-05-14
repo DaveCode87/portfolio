@@ -1,18 +1,34 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { bucketListJson } from "./../../utils/mock";
 import Image from "next/image";
 
 const BucketList = () => {
+  const [completedCount, setCompletedCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(bucketListJson.length);
+
   useEffect(() => {
-    if (!localStorage.getItem("logged")) {
+    const getUserfromLocalStorage = localStorage.getItem("logged")
+      ? JSON.parse(localStorage.getItem("logged"))
+      : null;
+
+    if (!getUserfromLocalStorage) {
       window.location.href = "/login";
     }
+
+    // Calcola il numero di voci completate
+    const completedItems = bucketListJson.filter((item) => item.completed);
+    setCompletedCount(completedItems.length);
   }, []);
 
   return (
     <div className="flex flex-col items-center py-24 relative bg-[#121212]">
+      <div className="flex justify-center mb-4 text-white">
+        <p>
+          Completed: {completedCount} / {totalCount}
+        </p>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full lg:w-3/4 xl:w-1/2">
         {bucketListJson.map((experience, index) => (
           <div

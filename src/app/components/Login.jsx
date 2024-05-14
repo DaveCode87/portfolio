@@ -3,10 +3,10 @@ import React, { useState,useEffect, useCallback } from "react";
 
 
 const containerStyle = {
-  minHeight: 'calc(100vh - 148px)', // Calcola l'altezza sottraendo l'altezza dell'header e del footer dalla viewport height
+  minHeight: 'calc(100vh - 148px)', 
   display: 'flex',
-  alignItems: 'center', // Centra verticalmente il contenuto
-  justifyContent: 'center', // Centra orizzontalmente il contenuto
+  alignItems: 'center', 
+  justifyContent: 'center', 
 };
 
 
@@ -17,11 +17,15 @@ const Login = () => {
   const [sending, setSending] = useState(false);
 
 
-useEffect(() => {
-  if (localStorage.getItem("logged")) {
-    window.location.href = "/bucketlist";
-  }
-}, []);
+  useEffect(() => {
+    const getUserfromLocalStorage = localStorage.getItem("logged")
+      ? JSON.parse(localStorage.getItem("logged"))
+      : null;
+
+    if (getUserfromLocalStorage) {
+      window.location.href = "/bucketlist";
+    }
+  }, []);
 
   const onChange = useCallback((event) => {
     const { name, value } = event.target;

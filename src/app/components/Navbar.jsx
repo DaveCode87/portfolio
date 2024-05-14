@@ -1,6 +1,6 @@
 "use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import React, { useState } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
@@ -43,16 +43,21 @@ const navLinksAuth = [
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [Logged, setLogged] = useState(false);
 
-  const Logged = localStorage.getItem("logged");
+  useEffect(() => {
+    // Verifica se il codice viene eseguito sul lato client
+    if (typeof window !== "undefined") {
+      // Accedi a localStorage solo se è disponibile
+      const isLogged = localStorage.getItem("logged");
+      setLogged(isLogged ? JSON.parse(isLogged) : false);
+    }
+  }, []);
 
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
-        >
+        <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold">
           <Image src={Logo} alt="Logo" width={50} height={50} />
         </Link>
         <div className="mobile-menu block md:hidden">

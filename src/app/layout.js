@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{display: "flex", flexDirection: "column",justifyContent: "space-between", minHeight: "100vh"}}>
+      <body className={inter.className} style={{display: "flex", flexDirection: "column",justifyContent: "space-between"}}>
         <Navbar />
         {children}
         <Footer />
